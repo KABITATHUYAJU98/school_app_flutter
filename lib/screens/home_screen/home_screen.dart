@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hamro_vidyalaya/constants.dart';
+import 'package:hamro_vidyalaya/screens/fee_screen/fee_screen.dart';
 import 'package:hamro_vidyalaya/screens/home_screen/widgets/student_data.dart';
 import 'package:hamro_vidyalaya/screens/my_profile/my_profile.dart';
 
@@ -53,7 +54,12 @@ class HomeScreen extends StatelessWidget {
                 StudentDataCard(
                     title: 'Attendance', value: '95.5%', onPress: () {}),
                 StudentDataCard(
-                    title: 'Fees Due', value: '600\$', onPress: () {})
+                    title: 'Fees Due',
+                    value: '600\$',
+                    onPress: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, FeeScreen.routeName, (route) => false);
+                    })
               ],
             )
           ]),

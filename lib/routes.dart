@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hamro_vidyalaya/screens/fee_screen/fee_screen.dart';
 import 'package:hamro_vidyalaya/screens/home_screen/home_screen.dart';
 import 'package:hamro_vidyalaya/screens/login_screen/login_screen.dart';
 import 'package:hamro_vidyalaya/screens/my_profile/my_profile.dart';
@@ -10,4 +11,5 @@ Map<String, WidgetBuilder> routes = {
   LoginScreen.routeName: (context) => LoginScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   MyProfileScreen.routeName: (context) => MyProfileScreen(),
+  FeeScreen.routeName: (context) => FeeScreen(),
 };
