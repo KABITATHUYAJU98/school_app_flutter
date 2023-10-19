@@ -12,8 +12,13 @@ const Color kErrorBorderColor = Color(0xFFE74C3C);
 
 //default value
 const kDefaultPadding = 28.0;
+
 const sizedBox = SizedBox(
   height: kDefaultPadding,
+);
+
+const kHalfSizedBox = SizedBox(
+  height: kDefaultPadding / 2,
 );
 
 //validation for mobile

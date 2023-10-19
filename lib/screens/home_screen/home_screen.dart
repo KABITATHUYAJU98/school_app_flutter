@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hamro_vidyalaya/constants.dart';
+import 'package:hamro_vidyalaya/screens/home_screen/widgets/student_data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,72 +21,22 @@ class HomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Column(
+                const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Hi ',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(fontWeight: FontWeight.w200),
-                        ),
-                        Text(
-                          'Kabita',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(fontWeight: FontWeight.w500),
-                        ),
-                      ],
+                    StudentName(studentName: 'Kabita'),
+                    kHalfSizedBox,
+                    StudentClass(studentClass: 'Class X-II A | Roll no: 12'),
+                    kHalfSizedBox,
+                    StudentYear(
+                      studentYear: '2020-2021',
                     ),
-                    Text(
-                      'Class X-II A | Roll no: 12',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(fontSize: 14.0),
-                    ),
-                    const SizedBox(
-                      height: kDefaultPadding / 2,
-                    ),
-                    Container(
-                      height: 20,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        color: kOtherColor,
-                        borderRadius: BorderRadius.circular(kDefaultPadding),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '2020-2021',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                  fontSize: 12.0,
-                                  color: kTextBlackColor,
-                                  fontWeight: FontWeight.w200),
-                        ),
-                      ),
-                    )
                   ],
                 ),
                 const SizedBox(height: kDefaultPadding / 6),
-                GestureDetector(
-                  onTap: () {
-                    //go to profile edit screen here
-                  },
-                  child: const CircleAvatar(
-                    minRadius: 50.0,
-                    maxRadius: 50.0,
-                    backgroundColor: kSecondaryColor,
-                    backgroundImage:
-                        AssetImage('assets/images/student_profile.jpeg'),
-                  ),
-                )
+                StudentPicture(
+                    studentPicture: 'assets/images/student_profile.jpeg',
+                    onPress: () {})
               ],
             ),
 
@@ -93,80 +45,10 @@ class HomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                InkWell(
-                  onTap: () {
-                    //go to attendance screen here
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    height: MediaQuery.of(context).size.height / 9,
-                    decoration: BoxDecoration(
-                      color: kOtherColor,
-                      borderRadius: BorderRadius.circular(kDefaultPadding),
-                    ),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            'Attendance',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                    fontSize: 16.0,
-                                    color: kTextBlackColor,
-                                    fontWeight: FontWeight.w800),
-                          ),
-                          Text(
-                            '95.5%',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                    fontSize: 25.0,
-                                    color: kTextBlackColor,
-                                    fontWeight: FontWeight.w300),
-                          )
-                        ]),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    //go to attendance screen here
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    height: MediaQuery.of(context).size.height / 9,
-                    decoration: BoxDecoration(
-                      color: kOtherColor,
-                      borderRadius: BorderRadius.circular(kDefaultPadding),
-                    ),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            'Fees Due',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                    fontSize: 16.0,
-                                    color: kTextBlackColor,
-                                    fontWeight: FontWeight.w800),
-                          ),
-                          Text(
-                            '600\$',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                    fontSize: 25.0,
-                                    color: kTextBlackColor,
-                                    fontWeight: FontWeight.w300),
-                          )
-                        ]),
-                  ),
-                )
+                StudentDataCard(
+                    title: 'Attendance', value: '95.5%', onPress: () {}),
+                StudentDataCard(
+                    title: 'Fees Due', value: '600\$', onPress: () {})
               ],
             )
           ]),
@@ -181,13 +63,138 @@ class HomeScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                   color: kOtherColor,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(kDefaultPadding * 3),
-                    topRight: Radius.circular(kDefaultPadding * 3),
+                    topLeft: Radius.circular(kDefaultPadding * 2.5),
+                    topRight: Radius.circular(kDefaultPadding * 2.5),
                   )),
+              child: ListView(
+                physics: const BouncingScrollPhysics(),
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/quiz.svg',
+                          title: 'Take Quiz'),
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/assignment.svg',
+                          title: 'Assignment')
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/holiday.svg',
+                          title: 'Holidays'),
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/timetable.svg',
+                          title: 'Time\nTable')
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/result.svg',
+                          title: 'Result'),
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/datesheet.svg',
+                          title: 'DateSheet')
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/ask.svg',
+                          title: 'Ask'),
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/gallery.svg',
+                          title: 'Gallery')
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/resume.svg',
+                          title: 'Leave\nApplication'),
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/lock.svg',
+                          title: 'Change\nPassword')
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/event.svg',
+                          title: 'Events'),
+                      HomeCard(
+                          onPress: () {},
+                          icon: 'assets/icons/logout.svg',
+                          title: 'Logout')
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
       ]),
+    );
+  }
+}
+
+class HomeCard extends StatelessWidget {
+  const HomeCard(
+      {super.key,
+      required this.onPress,
+      required this.icon,
+      required this.title});
+  final VoidCallback onPress;
+  final String icon;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPress,
+      child: Container(
+        margin: EdgeInsets.only(top: kDefaultPadding / 2),
+        width: MediaQuery.of(context).size.width / 2.5,
+        height: MediaQuery.of(context).size.height / 6,
+        decoration: BoxDecoration(
+          color: kPrimaryColor,
+          borderRadius: BorderRadius.circular(kDefaultPadding / 2),
+        ),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                icon,
+                height: 40.0,
+                width: 40.0,
+                color: kOtherColor,
+              ),
+              Text(title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodySmall),
+              const SizedBox(height: kDefaultPadding / 3)
+            ]),
+      ),
     );
   }
 }
