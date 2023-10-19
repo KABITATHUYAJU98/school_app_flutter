@@ -11,14 +11,22 @@ const Color kTextLightColor = Color(0xFFA5A5A5);
 const Color kErrorBorderColor = Color(0xFFE74C3C);
 
 //default value
-const kDefaultPadding = 28.0;
+const kDefaultPadding = 26.0;
 
 const sizedBox = SizedBox(
   height: kDefaultPadding,
 );
 
+const kWidthSizedBox = SizedBox(
+  width: kDefaultPadding,
+);
+
+const kHalfWidthSizedBox = SizedBox(
+  width: kDefaultPadding / 2,
+);
+
 const kHalfSizedBox = SizedBox(
-  height: kDefaultPadding / 2,
+  height: kDefaultPadding / 2.5,
 );
 
 //validation for mobile

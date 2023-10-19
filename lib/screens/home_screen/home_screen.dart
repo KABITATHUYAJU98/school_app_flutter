@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hamro_vidyalaya/constants.dart';
 import 'package:hamro_vidyalaya/screens/home_screen/widgets/student_data.dart';
+import 'package:hamro_vidyalaya/screens/my_profile/my_profile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,7 +37,11 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: kDefaultPadding / 6),
                 StudentPicture(
                     studentPicture: 'assets/images/student_profile.jpeg',
-                    onPress: () {})
+                    onPress: () {
+                      //go to profile detail screen here
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, MyProfileScreen.routeName, (route) => false);
+                    })
               ],
             ),
 

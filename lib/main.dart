@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light().copyWith(
           scaffoldBackgroundColor: kPrimaryColor, //default color for scaffold
           primaryColor: kPrimaryColor,
+          appBarTheme: const AppBarTheme(color: kPrimaryColor, elevation: 0),
 
           // use sourceSansPro as googlefont for our app
           textTheme:
@@ -27,12 +28,11 @@ class MyApp extends StatelessWidget {
                       bodyMedium:
                           const TextStyle(
                               color: kTextWhiteColor,
-                              fontSize: 35.0,
+                              fontSize: 30.0,
                               fontWeight: FontWeight.bold),
-                      
                       bodySmall: const TextStyle(
                           color: kTextWhiteColor,
-                          fontSize: 18.0,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.w300)),
 
           //input decoration theme for all in app
