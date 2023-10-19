@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hamro_vidyalaya/constants.dart';
+import 'package:hamro_vidyalaya/screens/assignment_screen/assignment_screen.dart';
 import 'package:hamro_vidyalaya/screens/fee_screen/fee_screen.dart';
 import 'package:hamro_vidyalaya/screens/home_screen/widgets/student_data.dart';
 import 'package:hamro_vidyalaya/screens/my_profile/my_profile.dart';
@@ -88,7 +89,10 @@ class HomeScreen extends StatelessWidget {
                           icon: 'assets/icons/quiz.svg',
                           title: 'Take Quiz'),
                       HomeCard(
-                          onPress: () {},
+                          onPress: () {
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                AssignmentScreen.routeName, (route) => false);
+                          },
                           icon: 'assets/icons/assignment.svg',
                           title: 'Assignment')
                     ],
