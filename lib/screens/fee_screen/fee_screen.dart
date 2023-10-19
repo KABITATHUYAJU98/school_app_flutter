@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hamro_vidyalaya/constants.dart';
 import 'package:hamro_vidyalaya/screens/fee_screen/data/fee_data.dart';
+import 'package:hamro_vidyalaya/screens/home_screen/widgets/fee_widgets.dart';
 
 class FeeScreen extends StatelessWidget {
   const FeeScreen({super.key});
@@ -22,15 +23,16 @@ class FeeScreen extends StatelessWidget {
               ),
               color: kOtherColor),
           child: ListView.builder(
-              padding: EdgeInsets.all(kDefaultPadding),
+              physics: BouncingScrollPhysics(),
+              padding: const EdgeInsets.all(kDefaultPadding),
               itemCount: fee.length,
               itemBuilder: (context, int index) {
                 return Container(
-                  margin: EdgeInsets.only(bottom: kDefaultPadding),
+                  margin: const EdgeInsets.only(bottom: kDefaultPadding),
                   child: Column(children: [
                     Container(
-                      padding: EdgeInsets.all(kDefaultPadding),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(kDefaultPadding),
+                      decoration: const BoxDecoration(
                           borderRadius: BorderRadius.vertical(
                             top: Radius.circular(kDefaultPadding),
                           ),
@@ -42,7 +44,7 @@ class FeeScreen extends StatelessWidget {
                         FeeDetailRow(
                             title: 'Receipt No',
                             statusValue: fee[index].receiptNo),
-                        SizedBox(
+                        const SizedBox(
                           height: kDefaultPadding,
                           child: Divider(
                             thickness: 1.0,
@@ -59,7 +61,7 @@ class FeeScreen extends StatelessWidget {
                             title: 'Status',
                             statusValue: fee[index].paymentStatus),
                         sizedBox,
-                        SizedBox(
+                        const SizedBox(
                           height: kDefaultPadding,
                           child: Divider(
                             thickness: 1.0,
@@ -70,45 +72,17 @@ class FeeScreen extends StatelessWidget {
                             statusValue: fee[index].totalAmount),
                       ]),
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 40.0,
-                    )
+                    FeeButton(
+                        title: fee[index].btnStatus,
+                        iconData: fee[index].btnStatus == 'Paid'
+                            ? Icons.download_outlined
+                            : Icons.arrow_right_alt,
+                        onPress: () {})
                   ]),
                 );
               }),
         ))
       ]),
-    );
-  }
-}
-
-class FeeDetailRow extends StatelessWidget {
-  const FeeDetailRow(
-      {super.key, required this.title, required this.statusValue});
-  final String title;
-  final String statusValue;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .copyWith(fontSize: 14.0, color: kTextLightColor),
-        ),
-        Text(
-          statusValue,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              fontSize: 14.0,
-              color: kTextLightColor,
-              fontWeight: FontWeight.w600),
-        )
-      ],
     );
   }
 }
