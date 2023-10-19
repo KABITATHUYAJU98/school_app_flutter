@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
                               color: kTextWhiteColor,
                               fontSize: 35.0,
                               fontWeight: FontWeight.bold),
+                      
                       bodySmall: const TextStyle(
                           color: kTextWhiteColor,
                           fontSize: 18.0,

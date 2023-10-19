@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hamro_vidyalaya/components/custom_buttons.dart';
 import 'package:hamro_vidyalaya/constants.dart';
+import 'package:hamro_vidyalaya/screens/home_screen/home_screen.dart';
 
 late bool _passwordVisible;
 
@@ -82,35 +83,36 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(kDefaultPadding),
                 child: Column(children: [
                   Form(
-                    key: _formKey,
+                      key: _formKey,
                       child: Column(
-                    children: [
-                      sizedBox,
-                      //this is a best practice for clean code
-                      buildEmailField(),
-                      sizedBox,
-                      buildPasswordField(),
-                      sizedBox,
-                      DefaultButton(
-                          onPress: () {
-                            if(_formKey.currentState!.validate()){
-                              //go to next activity
-                              
-                            }
-                          },
-                          title: 'SIGN IN',
-                          iconData: Icons.arrow_forward_outlined),
+                        children: [
+                          sizedBox,
+                          //this is a best practice for clean code
+                          buildEmailField(),
+                          sizedBox,
+                          buildPasswordField(),
+                          sizedBox,
+                          DefaultButton(
+                              onPress: () {
+                                if (_formKey.currentState!.validate()) {
+                                  //go to next activity
+                                  Navigator.pushNamedAndRemoveUntil(context,
+                                      HomeScreen.routeName, (route) => false);
+                                }
+                              },
+                              title: 'SIGN IN',
+                              iconData: Icons.arrow_forward_outlined),
 
-                      sizedBox,
-                      const Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text('Forgot Password',
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                                color: kPrimaryColor, fontSize: 15.0)),
-                      ),
-                    ],
-                  ))
+                          sizedBox,
+                          const Align(
+                            alignment: Alignment.bottomRight,
+                            child: Text('Forgot Password',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    color: kPrimaryColor, fontSize: 15.0)),
+                          ),
+                        ],
+                      ))
                 ]),
               ),
             ),
