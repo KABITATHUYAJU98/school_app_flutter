@@ -28,12 +28,12 @@ class AssignmentScreen extends StatelessWidget {
                     itemCount: assignment.length,
                     itemBuilder: (context, int index) {
                       return Container(
-                        margin: EdgeInsets.only(bottom: kDefaultPadding),
+                        margin: const EdgeInsets.only(bottom: kDefaultPadding),
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                padding: EdgeInsets.all(kDefaultPadding),
+                                padding: const EdgeInsets.all(kDefaultPadding),
                                 decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.circular(kDefaultPadding),
@@ -43,6 +43,7 @@ class AssignmentScreen extends StatelessWidget {
                                           color: kTextLightColor,
                                           blurRadius: 2.0)
                                     ]),
+                                    
                                 child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,

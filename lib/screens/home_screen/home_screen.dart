@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hamro_vidyalaya/constants.dart';
 import 'package:hamro_vidyalaya/screens/assignment_screen/assignment_screen.dart';
+import 'package:hamro_vidyalaya/screens/date_sheet_screen/date_sheet_screen.dart';
 import 'package:hamro_vidyalaya/screens/fee_screen/fee_screen.dart';
 import 'package:hamro_vidyalaya/screens/home_screen/widgets/student_data.dart';
 import 'package:hamro_vidyalaya/screens/my_profile/my_profile.dart';
@@ -41,8 +42,7 @@ class HomeScreen extends StatelessWidget {
                     studentPicture: 'assets/images/student_profile.jpeg',
                     onPress: () {
                       //go to profile detail screen here
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, MyProfileScreen.routeName, (route) => false);
+                      Navigator.pushNamed(context, MyProfileScreen.routeName);
                     })
               ],
             ),
@@ -58,8 +58,7 @@ class HomeScreen extends StatelessWidget {
                     title: 'Fees Due',
                     value: '600\$',
                     onPress: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, FeeScreen.routeName, (route) => false);
+                      Navigator.pushNamed(context, FeeScreen.routeName);
                     })
               ],
             )
@@ -90,8 +89,8 @@ class HomeScreen extends StatelessWidget {
                           title: 'Take Quiz'),
                       HomeCard(
                           onPress: () {
-                            Navigator.pushNamedAndRemoveUntil(context,
-                                AssignmentScreen.routeName, (route) => false);
+                            Navigator.pushNamed(
+                                context, AssignmentScreen.routeName);
                           },
                           icon: 'assets/icons/assignment.svg',
                           title: 'Assignment')
@@ -118,7 +117,10 @@ class HomeScreen extends StatelessWidget {
                           icon: 'assets/icons/result.svg',
                           title: 'Result'),
                       HomeCard(
-                          onPress: () {},
+                          onPress: () {
+                            Navigator.pushNamed(
+                                context, DateSheetScreen.routeName);
+                          },
                           icon: 'assets/icons/datesheet.svg',
                           title: 'DateSheet')
                     ],
