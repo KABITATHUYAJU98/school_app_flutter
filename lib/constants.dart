@@ -29,6 +29,10 @@ const kHalfSizedBox = SizedBox(
   height: kDefaultPadding / 2.5,
 );
 
+const kBorderRadius = BorderRadius.only(
+    topLeft: Radius.circular(kDefaultPadding),
+    topRight: Radius.circular(kDefaultPadding));
+
 //validation for mobile
 const String mobilePattern = r'(^(?:[+B]9)?[0-9]{10,12}$)';
 

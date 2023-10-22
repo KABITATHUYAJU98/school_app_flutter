@@ -6,6 +6,7 @@ import 'package:hamro_vidyalaya/screens/date_sheet_screen/date_sheet_screen.dart
 import 'package:hamro_vidyalaya/screens/fee_screen/fee_screen.dart';
 import 'package:hamro_vidyalaya/screens/home_screen/widgets/student_data.dart';
 import 'package:hamro_vidyalaya/screens/my_profile/my_profile.dart';
+import 'package:hamro_vidyalaya/screens/result_screen/result_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -113,7 +114,10 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       HomeCard(
-                          onPress: () {},
+                          onPress: () {
+                            Navigator.pushNamed(
+                                context, ResultScreen.routeName);
+                          },
                           icon: 'assets/icons/result.svg',
                           title: 'Result'),
                       HomeCard(

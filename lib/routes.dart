@@ -5,6 +5,7 @@ import 'package:hamro_vidyalaya/screens/fee_screen/fee_screen.dart';
 import 'package:hamro_vidyalaya/screens/home_screen/home_screen.dart';
 import 'package:hamro_vidyalaya/screens/login_screen/login_screen.dart';
 import 'package:hamro_vidyalaya/screens/my_profile/my_profile.dart';
+import 'package:hamro_vidyalaya/screens/result_screen/result_screen.dart';
 import 'package:hamro_vidyalaya/screens/splash_screen/splash_screen.dart';
 
 Map<String, WidgetBuilder> routes = {
@@ -16,4 +17,5 @@ Map<String, WidgetBuilder> routes = {
   FeeScreen.routeName: (context) => FeeScreen(),
   AssignmentScreen.routeName: (context) => AssignmentScreen(),
   DateSheetScreen.routeName: (context) => DateSheetScreen(),
+  ResultScreen.routeName: (context) => ResultScreen(),
 };
